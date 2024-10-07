@@ -8,7 +8,7 @@ The pipeline is based on the analysis of data from BioProject ID PRJNA612815.
 The accession list for BioProject ID PRJNA612815 was downloaded using the run selector option in NCBI (Soriano-Lerma A. et al., 2020).
 The sratoolkit was installed using the Ubuntu package manager (APT).
 Installation command:
-sudo apt install sratoolkit
+**sudo apt install sratoolkit**
 The ‘prefetch’ command of ‘sratoolkit’ was used to download the SRA files specific to the 16S sequence data (V3-V4 region) [Code available in **SRA.sh**]
 SRA files are organized into a directory named "SRADirectory".
 
@@ -28,17 +28,17 @@ SRA accession IDs.
 The '--no-indels' option ensures exact matching for adapter removal, and the 'e 0.15' option sets the error rate threshold for adapter matching. The '--discard-untrimmed' option removes read pairs lacking the specified adapters.
 
 #4. Quality Filtering
-The PRINSEQ tool (downloaded from the website https://sourceforge.net/projects/prinseq/files/) was used to filter reads based on quality. Reads with a minimum mean quality of 25 (phred score) were retained.
+**The PRINSEQ tool (downloaded from the website https://sourceforge.net/projects/prinseq/files/)** was used to filter reads based on quality. Reads with a minimum mean quality of 25 (phred score) were retained.
 [Code available in **PrinSeq.sh**]
 It takes the forward and reverse FASTQ files of the sample, specified by '-fastq' and '-fastq2', respectively. The '-min_qual_mean 25' option sets the minimum read mean quality to be 25. The '-out_format 3' option indicates that the filtered output files will be in FASTQ format. The '-out_bad null' option ensures that any sequences that fail the quality filtering are not saved as separate files.  
 In end, this script filters reads with minimum phred score 25 in 'GoodQuality' directory.
 Note: 
 We can generate the quality report by using FASTQC tool command line:
-fastqc <filename> -o Quality
+**fastqc <filename> -o Quality**
 It will produce the quality report of mentioned 'filename' in 'Quality' directory.
 
 #5. Assembly of Forward and Reverse reads
-The PEAR tool (downloaded from the website http://www.exelixis-lab.org/web/software/pear) was used to assemble the forward and reverse reads. A minimum overlap region of 30 bases was allowed for stitching the reads together.
+**The PEAR tool (downloaded from the website http://www.exelixis-lab.org/web/software/pear)** was used to assemble the forward and reverse reads. A minimum overlap region of 30 bases was allowed for stitching the reads together.
 Note: Illumina V3 chemistry allowed sequencing of 300 bases each of forward and reverse reads. Given the target region was V3-V4 (~470bp), it theoretically allowed a potential overlapping region of 100 bases. In order to increase the chances of successful assembly, we therefore allowed a minimum overlap region of 30 bases (as specified -v 30) for the PEAR tool to stitch the forward and reverse reads together.
 [Code available in **Pear.sh**] 
 This script will move the assembled sequence to the 'ASSEMBLE' directory.
