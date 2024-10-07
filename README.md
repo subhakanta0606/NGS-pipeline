@@ -1,5 +1,7 @@
 # NGS-pipeline
-This repository contains the code pipeline that I wrote for next generation sequencing (NGS) analysis under the guidance of Mr. Sunil Nagpal and Dr. Bhupesh Taneja. 
+**Author: Subhakanta Behera**
+
+This repository contains the code pipeline that I wrote for next generation sequencing (NGS) analysis under the guidance of **Mr. Sunil Nagpal** and **Dr. Bhupesh Taneja**. 
 The pipeline is based on the analysis of data from BioProject ID PRJNA612815.
 
 #1. Data Acquisition:
