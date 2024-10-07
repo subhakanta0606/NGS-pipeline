@@ -43,5 +43,12 @@ This script will move the assembled sequence to the 'ASSEMBLE' directory.
 
 #6. FASTQ to FASTA Conversion
 FASTQ files were converted to FASTA format for compatibility with the RDP classifier.
+[Code available in **FASTAconversion.sh**]
+This script moves the converted files to FASTA directory.
+
+#7 Taxonomic Classification
+The Ribosomal Database Project (RDP) classifier was used to generate Phylum, Class, Order, Family, and Genus level classification of reads across all files.
+[Code available in **RDPclassifier.sh**]
+The provided Java command executes the 'rdp_classifier_2.13' tool, a classification tool for DNA sequences in FASTA format. The classification method chosen is 'fixrank', with a confidence threshold of 0.8 specified by '-c 0.8'. Sequences with a confidence value below 0.8 are marked as 'Unassigned'. The command processes input FASTA files from the 'FastaDirectory' and saves the classification results in the file 'PRJNA612815.classified' by using '-o PRJNA612815.classified'. Here, (.classified) file stores the confidence of read classification at any given level of taxonomy. The (.hier) file stores the final tabulated count data summary created using (.classified) summary for all reads.
 
 
